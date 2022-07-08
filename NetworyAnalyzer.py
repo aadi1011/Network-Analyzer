@@ -96,13 +96,14 @@ def graph_data(data_file):
         print("Invalid input given. Please try again.")
         os.system('pause')
         os.system('cls')
-        show_data(data_file)
+        graph_data(data_file)
 
 def about():
     pass
 
 def exit():
     pass
+
 
 def start_screen():
     print("\n\t\t***** MENU *****\n")
