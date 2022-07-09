@@ -16,6 +16,7 @@ def menu2(data_file):
     print("1. Show Data")
     print("2. Build Graphs")
     print("3. Trace Suspected Address")
+    print("4. Find public IP address GeoLocation")
     option_menu2 = int(input("Choose an option: \n"))
     if(option_menu2 == 1):
         os.system('cls')
@@ -26,6 +27,10 @@ def menu2(data_file):
     elif(option_menu2==3):
         os.system('cls')
         suspect(data_file)
+    elif(option_menu2==4):
+        os.system('cls')
+        GeoLoc()
+
     elif(option_menu2==0):
         os.system('cls')
         start_screen()
@@ -137,6 +142,25 @@ def suspect(data_file):
     else:
         os.system('cls')
         menu2(data_file)
+
+def GeoLoc():
+    banner()
+    print("\n GEOLOCATION TOOL: \nFinds country location of provided public address using GeoIP2 module.")
+    print("NOTE: Requires GeoLite2-Country.mmdb file installed in path. Only works on PUBLIC IP addreses.\n")
+
+    reader = geoip2.database.Reader("C:\\Users\\Aadith Sukumar\\Desktop\\CyberSec Project\\Network Analyzer\\GeoLite2-Country.mmdb")
+    geoloc_input=input("Enter Public IP Address to locate: ")
+    try:
+        response = reader.country(geoloc_input)
+        print(response.country.name)
+        os.system('pause')
+        os.system('cls')
+        
+    except geoip2.errors.AddressNotFoundError:
+        print("Address not in database")
+
+    except ValueError:
+        print("Invalid Input")
 
 def about():
     os.system('cls')
