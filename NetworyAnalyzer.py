@@ -4,11 +4,14 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import geoip2.database
 import pyfiglet
+ 
 
-result = pyfiglet.figlet_format("Aadi's Network Analyzer", font = "slant" )
-print(result)
+def banner():
+    result = pyfiglet.figlet_format("Aadi's Network Analyzer", font = "slant" )
+    print(result)
 
 def menu2(data_file):
+    banner()
     print("0. Go Back")
     print("1. Show Data")
     print("2. Build Graphs")
@@ -22,9 +25,16 @@ def menu2(data_file):
     elif(option_menu2==0):
         os.system('cls')
         start_screen()
-
+    else:
+        os.system('cls')
+        print("Invalid input given. Please try again.")
+        os.system('pause')
+        os.system('cls')
+        menu2(data_file)        
+ 
 def show_data(data_file):
-    print("0. Go Back")
+    banner()
+    print("0. Go Back")  
     print("1. Show first 10 readings")
     print("2. Show source and counts")
     print("3. Show destination and counts")
@@ -64,6 +74,7 @@ def show_data(data_file):
         show_data(data_file)
 
 def graph_data(data_file):
+    banner()
     print("0. Go Back")
     print("1. Display NodeView of traffic")
     print("2. Display EdgeView of traffic")
@@ -99,13 +110,33 @@ def graph_data(data_file):
         graph_data(data_file)
 
 def about():
-    pass
+    os.system('cls')
+    banner()
+    print("**Network Analyzer Program**")
+    print("Network Analyzer analyzes the network information available in CSV format, captured using Wireshark or any other network/packet sniffing/capturing tool.")
+    print("This is developed solely for use in Windows OS and developmen is underway for Linux distros as well.\n")
+    print("Created By: AADITH SUKUMAR")
+    print("GitHub: https://github.com/aadi1011")
+    print("LinkedIn: https://www.linkedin.com/in/aadith-sukumar/")
+    os.system('pause')
+    start_screen()
 
 def exit():
-    pass
+    os.system('cls')
+    banner()
+    exit_option=input("Are You Sure?(Y/N): ")
+    if(exit_option=='Y' or exit_option=='y'):
+        os.system('cls')
+        print("Thank you for using Network Analyzer!")
+    elif(exit_option=='N' or exit_option=='n'):
+        os.system('cls')
+        start_screen()
+    else:
+        exit()
 
 
 def start_screen():
+    banner()
     print("\n\t\t***** MENU *****\n")
     print("1. Start")
     print("2. About")
