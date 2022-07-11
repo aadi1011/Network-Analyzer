@@ -145,22 +145,35 @@ def suspect(data_file):
 
 def GeoLoc():
     banner()
+    
     print("\n GEOLOCATION TOOL: \nFinds country location of provided public address using GeoIP2 module.")
     print("NOTE: Requires GeoLite2-Country.mmdb file installed in path. Only works on PUBLIC IP addreses.\n")
+    geo_option=input("Print 1 to continue, 0 to go back: ")
+    if(geo_option==1):
+        reader = geoip2.database.Reader("C:\\Users\\Aadith Sukumar\\Desktop\\CyberSec Project\\Network Analyzer\\GeoLite2-Country.mmdb")
+        geoloc_input=input("Enter Public IP Address to locate: ")
+        try:
+            response = reader.country(geoloc_input)
+            print(response.country.name)
+            os.system('pause')
+            os.system('cls')
+            menu2()
+            
+        except geoip2.errors.AddressNotFoundError:
+            print("Address not in database")
+            os.system('pause')
+            os.system('cls')        
+            GeoLoc()
 
-    reader = geoip2.database.Reader("C:\\Users\\Aadith Sukumar\\Desktop\\CyberSec Project\\Network Analyzer\\GeoLite2-Country.mmdb")
-    geoloc_input=input("Enter Public IP Address to locate: ")
-    try:
-        response = reader.country(geoloc_input)
-        print(response.country.name)
-        os.system('pause')
+        except ValueError:
+            print("Invalid Input")
+            os.system('pause')
+            os.system('cls')
+            GeoLoc()
+    elif(geo_option==0):
         os.system('cls')
-        
-    except geoip2.errors.AddressNotFoundError:
-        print("Address not in database")
+        menu2()
 
-    except ValueError:
-        print("Invalid Input")
 
 def about():
     os.system('cls')
