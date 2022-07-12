@@ -3,9 +3,9 @@
 This python based program helps the user analyze a captured network (in csv format) with easy to understand filters and menu-driven interface.</br>
 User can see data captured, traffic sorted by source address/destination address, protocol filter, build NodeView/EdgeView and network map of traffic, flag suspected traffic and also find country location of a public IP Address using geolocation. </br>
 <h4>Salient Features: </h4>
-- Easy to understand user interface
-- Most error exceptions handled
-- Easy to read outputs
-- Works across networks
-- Ability to handle large data
+- Easy to understand user interface</br>
+- Most error exceptions handled</br>
+- Easy to read outputs</br>
+- Works across networks</br>
+- Ability to handle large data</br>
 Prerequisite: CSV file with captured network traffic data using sniffers like Wireshark.
