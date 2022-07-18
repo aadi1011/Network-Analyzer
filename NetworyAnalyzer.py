@@ -68,28 +68,60 @@ def show_data(data_file):
     
     sub_option2 = int(input("Choose option: "))
     if(sub_option2==1):
-        print(data_file.head(10))   #pandas head() prints the first 10 results of csv 
-        os.system('pause')
-        os.system('cls')
-        show_data(data_file)
+        try:
+            print(data_file.head(10))   #pandas head() prints the first 10 results of csv 
+            os.system('pause')
+            os.system('cls')
+            show_data(data_file)
+        except KeyError:
+            os.system('cls')
+            banner()
+            print("Invalid CSV Format provided. Please upload a valid CSV file of Wireshark export format.")
+            os.system('pause')
+            os.system('cls')
+            start_screen()
     elif(sub_option2==2):
-        sources=data_file.groupby("Source").Source.count()  #groups the csv data by the 'Source' filter and sorts them by their count
-        print(sources.sort_values())
-        os.system('pause')
-        os.system('cls')
-        show_data(data_file)
+        try:
+            sources=data_file.groupby("Source").Source.count()  #groups the csv data by the 'Source' filter and sorts them by their count
+            print(sources.sort_values())
+            os.system('pause')
+            os.system('cls')
+            show_data(data_file)
+        except KeyError:
+            os.system('cls')
+            banner()
+            print("Invalid CSV Format provided. Please upload a valid CSV file of Wireshark export format.")
+            os.system('pause')
+            os.system('cls')
+            start_screen()
     elif(sub_option2==3):
-        dest=data_file.groupby("Destination").Destination.count() #groups the csv data by the 'Destination' filter and sorts them by their count
-        print(dest.sort_values())
-        os.system('pause')
-        os.system('cls')
-        show_data(data_file)
+        try:
+            dest=data_file.groupby("Destination").Destination.count() #groups the csv data by the 'Destination' filter and sorts them by their count
+            print(dest.sort_values())
+            os.system('pause')
+            os.system('cls')
+            show_data(data_file)
+        except KeyError:
+            os.system('cls')
+            banner()
+            print("Invalid CSV Format provided. Please upload a valid CSV file of Wireshark export format.")
+            os.system('pause')
+            os.system('cls')
+            start_screen()
     elif(sub_option2==4):
-        protocol=data_file.groupby("Protocol").Protocol.count() #groups the csv data by the 'Protocol' filter and sorts them by their count
-        print(protocol.sort_values())
-        os.system('pause')
-        os.system('cls')
-        show_data(data_file)
+        try:
+            protocol=data_file.groupby("Protocol").Protocol.count() #groups the csv data by the 'Protocol' filter and sorts them by their count
+            print(protocol.sort_values())
+            os.system('pause')
+            os.system('cls')
+            show_data(data_file)
+        except KeyError:
+            os.system('cls')
+            banner()
+            print("Invalid CSV Format provided. Please upload a valid CSV file of Wireshark export format.")
+            os.system('pause')
+            os.system('cls')
+            start_screen()
     elif(sub_option2==0):   #Goes back to main menu
         os.system('cls')
         menu2(data_file)
@@ -164,17 +196,26 @@ def suspect(data_file):
     #prompt to show graphical network map with suspected isolated with its connections.
     suspect_graph_option=input("\nPress Y to show suspect network graph (any other key to go back): ")
     if(suspect_graph_option=='y' or suspect_graph_option=='Y'):
-        pos=nx.spring_layout(network)   #the spring_layour positions nodes using Fruchterman-Reingold force-directed algorithm
-        
-        #Safe networks marked isolated and with green colour and other parameters
-        nx.draw(network, pos, node_color="green", node_size=300, with_labels=True)
-        #Suspect marked in red by program and larger size to show prominence
-        options = {"node_size":1000, "node_color":"r"}
-        nx.draw_networkx_nodes(network, pos, nodelist=[suspect_ad],**options)
-        plt.show()  #Network map is plotted (on a new window if running from terminal)
-        os.system('\npause')
-        os.system('cls')
-        menu2(data_file)
+        try:     
+            pos=nx.spring_layout(network)   #the spring_layour positions nodes using Fruchterman-Reingold force-directed algorithm
+            
+            #Safe networks marked isolated and with green colour and other parameters
+            nx.draw(network, pos, node_color="green", node_size=300, with_labels=True)
+            #Suspect marked in red by program and larger size to show prominence
+            options = {"node_size":1000, "node_color":"r"}
+            nx.draw_networkx_nodes(network, pos, nodelist=[suspect_ad],**options)
+            plt.show()  #Network map is plotted (on a new window if running from terminal)
+            os.system('\npause')
+            os.system('cls')
+            menu2(data_file)
+        except nx.exception.NetworkXError:
+            os.system('cls')
+            banner()
+            print("Suspect not in network. Please try again.")
+            os.system('pause')
+            os.system('cls')
+            menu2(data_file)
+
     
     else:
         os.system('cls')
@@ -198,24 +239,52 @@ def GeoLoc(data_file):
             print(response.country.name)
             os.system('pause')
             os.system('cls')
-            menu2()
+            menu2(data_file)
             
         #Private IP Address/Reserved IP Address are not located by geoip2 tool and error thrown
         except geoip2.errors.AddressNotFoundError: 
+            os.system('cls')
+            banner()
             print("Address not in database")
             os.system('pause')
             os.system('cls')        
-            GeoLoc()
+            GeoLoc(data_file)
 
         except ValueError:
+            os.system('cls')
+            banner()
             print("Invalid Input")
             os.system('pause')
             os.system('cls')
-            GeoLoc()
-    
+            GeoLoc(data_file)
+
+        except OSError:
+            os.system('cls')
+            banner()
+            print("Invalid Input")
+            os.system('pause')
+            os.system('cls')
+            GeoLoc(data_file)
+
+        except TypeError:
+            os.system('cls')
+            banner()
+            print("Invalid Input. Please provide an input")
+            os.system('pause')
+            os.system('cls')
+            GeoLoc(data_file)
+            
     elif(geo_option=='0'):
         os.system('cls')
         menu2(data_file)
+
+    else:
+        os.system('cls')
+        banner()
+        print("Invalid input given, please try again.")
+        os.system('pause')
+        os.system('cls')
+        GeoLoc(data_file)
 
 #About page of this application
 def about():
@@ -249,6 +318,7 @@ def exit():
 #APPLICATION STARTS WITH THIS FUNCTION
 # Start screen with the basic menu options and that leads to other functions of the application. 
 def start_screen():
+    os.system('cls')
     banner()
     print("\n\t\t***** MENU *****\n")
     print("1. Start")
@@ -272,6 +342,14 @@ def start_screen():
                 os.system('cls')
                 banner()
                 print("\n\nERROR: FILE NOT FOUND. Enter valid file path.")
+                os.system('pause')
+                os.system('cls')
+                start_screen()
+
+            except OSError:
+                os.system('cls')
+                banner()
+                print("\n\nERROR: Invalid argument. Please enter without quote marks.")
                 os.system('pause')
                 os.system('cls')
                 start_screen()
