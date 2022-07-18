@@ -4,6 +4,8 @@
 # Suspected network addresses can also be marked and mapped. 
 # An additional GeoLocator feature is also provided.
 
+#MIT License
+#Copyright (c) 2022 Aadith Sukumar
 # Created by AADITH SUKUMAR
 # GitHub: https://github.com/aadi1011
 # LinkedIn: https://linkedin.com/in/aadith-sukumar/
