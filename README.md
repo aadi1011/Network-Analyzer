@@ -1,11 +1,6 @@
 <a href="https://github.com/aadi1011/Network-Analyzer/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/aadi1011/Network-Analyzer"></a>
 <a href="https://github.com/aadi1011/Network-Analyzer"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/aadi1011/Network-Analyzer?label=Stars&logo=github"></a>
 
-<!--
-<a href="https://github.com/aadi1011/Network-Analyzer"><img alt="GitHub watchers" src="https://img.shields.io/github/watchers/aadi1011/Network-Analyzer?style=social"></a>
-<a href="https://github.com/aadi1011/Network-Analyzer"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/aadi1011/Network-Analyzer?style=social"></a>
--->
-
 # Network-Analyzer
 <b>Repository created by Aadith Sukumar</b> (<a href="https://github.com/aadi1011/">aadi1011</a>). Contact for reuse, issues and more information.</br></br>
 This python based program helps the user analyze a captured network (in csv format) with easy to understand filters and menu-driven interface.</br>
