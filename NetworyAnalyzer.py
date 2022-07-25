@@ -65,7 +65,8 @@ def show_data(data_file):
     print("2. Show source and counts")
     print("3. Show destination and counts")
     print("4. Show protocols and counts")
-    
+    print("5. Show all traffic of a protocol")
+
     sub_option2 = int(input("Choose option: "))
     if(sub_option2==1):
         try:
@@ -114,6 +115,24 @@ def show_data(data_file):
             print(protocol.sort_values())
             os.system('pause')
             os.system('cls')
+            show_data(data_file)
+        except KeyError:
+            os.system('cls')
+            banner()
+            print("Invalid CSV Format provided. Please upload a valid CSV file of Wireshark export format.")
+            os.system('pause')
+            os.system('cls')
+            start_screen()
+    elif(sub_option2==5):
+        try:
+            ProtoSearch = input("Enter the protocol you want to search (case sensitive): ")  #User input to search all connections for a protocol.
+            #Allowing more than default '10' values to be printed
+            pd.set_option('display.max_rows', 500)                          
+            print(data_file.loc[data_file['Protocol']==ProtoSearch, ["Time","Source","Destination","Protocol","Length"]])
+            os.system('pause')
+            os.system('cls')
+            #Setting values back to 10 (default)
+            pd.set_option('display.max_rows', 10)
             show_data(data_file)
         except KeyError:
             os.system('cls')
