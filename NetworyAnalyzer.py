@@ -11,12 +11,15 @@
 # LinkedIn: https://linkedin.com/in/aadith-sukumar/
 
 # Importing required libraries
+from cgitb import html
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import networkx as nx
 import geoip2.database
 import pyfiglet
+from pyvis.network import Network
+
  
 # banner() function for ASCII Word Art in the terminal. banner() is called at start of every function after 
 # clearing screen to stay on top of program
@@ -177,13 +180,32 @@ def graph_data(data_file):
     
     elif(sub2_option2==3):
         network = nx.from_pandas_edgelist(data_file, source="Source", target="Destination", edge_attr=True)
-        nx.draw_circular(network, with_labels=True) #network map is drawn with the connections made from the network variable.
-        #Network map is plotted (on a new window if running from terminal)
-        plt.show()  
-        os.system('pause') 
-        os.system('cls')
-        graph_data(data_file)
-    
+        graph_option=int(input("\n1. Show dynamic graph in HTML View.\n2. Show image graph (.png): "))
+        if(graph_option==1):
+            net=Network(notebook=False, height='1000px',width='1500px')
+            net.from_nx(network)
+            net.show("networkgraph.html")
+            #print(html_plotter)
+            os.system('pause')
+            os.system('cls')
+            graph_data(data_file)
+
+        elif(graph_option==2):
+            network = nx.from_pandas_edgelist(data_file, source="Source", target="Destination", edge_attr=True)
+            nx.draw_circular(network, with_labels=True) #network map is drawn with the connections made from the network variable.
+            #Network map is plotted (on a new window if running from terminal)
+            plt.show()  
+            os.system('pause') 
+            os.system('cls')
+            graph_data(data_file)
+
+        else:
+            os.system('cls')
+            print("Invalid input given. Please try again.")
+            os.system('pause')
+            os.system('cls')
+            graph_data(data_file)        
+
     elif(sub2_option2==0):
         os.system('cls')
         menu2(data_file)
