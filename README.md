@@ -7,8 +7,8 @@ This python based program helps the user analyze a captured network (in csv form
 User can see data captured, traffic sorted by source address/destination address, protocol filter, find protocol specific traffic, build NodeView/EdgeView and network map of traffic, flag suspected traffic and also find country location of a public IP Address using geolocation. </br>
 <h4>Salient Features: </h4>
 - Easy to understand user interface</br>
-- Builds a dynamic html graphic map
-- Most error exceptions handled</br>
+- Builds a dynamic html graphic map</br>
+- Handles error exceptions </br>
 - Easy to read outputs</br>
 - Works across networks</br>
 - Ability to handle large data</br>
