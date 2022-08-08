@@ -15,7 +15,7 @@ from cgitb import html
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-import networkx as nx
+import networkx as nx 
 import geoip2.database
 import pyfiglet
 from pyvis.network import Network
@@ -184,7 +184,10 @@ def graph_data(data_file):
         if(graph_option==1):
             net=Network(notebook=False, height='1000px',width='1500px')
             net.from_nx(network)
-            net.show("networkgraph.html")
+            # To print out html, we need to extract the directory path as Python can't read relative paths directive
+            dirname = os.path.dirname(__file__) #Stores directory path in 'dirname'
+            filename = os.path.join(dirname, 'networkgraph.html')   #file is given appended to directory
+            net.show(filename)  #full path is called through appending in the 'dirname' and 'filename'
             #print(html_plotter)
             os.system('pause')
             os.system('cls')
@@ -195,7 +198,7 @@ def graph_data(data_file):
             nx.draw_circular(network, with_labels=True) #network map is drawn with the connections made from the network variable.
             #Network map is plotted (on a new window if running from terminal)
             plt.show()  
-            os.system('pause') 
+            os.system('pause')
             os.system('cls')
             graph_data(data_file)
 
@@ -383,6 +386,14 @@ def start_screen():
                 os.system('cls')
                 banner()
                 print("\n\nERROR: FILE NOT FOUND. Enter valid file path.")
+                os.system('pause')
+                os.system('cls')
+                start_screen()
+
+            except PermissionError:
+                os.system('cls')
+                banner()
+                print("\n\nPermission Error: Admin privileges required to run this command. Please try again.")
                 os.system('pause')
                 os.system('cls')
                 start_screen()
