@@ -1,3 +1,9 @@
+from imports import *
+import banner
+from menu import menu2
+import about
+import exits
+
 def start_screen():
     os.system('cls')
     banner()
@@ -36,10 +42,10 @@ def start_screen():
                 start_screen()
         
         elif(menu_input==2):
-            about()
+            about.about()
         
         elif(menu_input==3):
-            exit()
+            exits.exit()
         
         else:
             os.system('cls')
