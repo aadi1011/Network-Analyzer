@@ -1,8 +1,8 @@
 from imports import *
-import banner
-from menu import menu2
-import about
-import exits
+from figlet import banner
+from start_options import *
+from info import about
+from exits import exit
 
 def start_screen():
     os.system('cls')
@@ -42,10 +42,10 @@ def start_screen():
                 start_screen()
         
         elif(menu_input==2):
-            about.about()
+            about()
         
         elif(menu_input==3):
-            exits.exit()
+            exit()
         
         else:
             os.system('cls')
