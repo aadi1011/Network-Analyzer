@@ -1,6 +1,6 @@
 from imports import *
 from figlet import banner
-from main_page import *  
+from main_page import *  #to check circulat import
 import data_disp
 import graph_disp
 import sus_data
