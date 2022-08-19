@@ -1,3 +1,5 @@
+#main menu code. need to fix circular import
+
 from imports import *
 from figlet import banner
 from main_page import *  #to check circulat import
