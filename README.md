@@ -1,5 +1,5 @@
-<a href="https://github.com/aadi1011/Network-Analyzer/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/aadi1011/Network-Analyzer"></a>
-<a href="https://github.com/aadi1011/Network-Analyzer"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/aadi1011/Network-Analyzer?label=Stars&logo=github"></a>
+<h3> <a href="https://github.com/aadi1011/Network-Analyzer/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/aadi1011/Network-Analyzer"></a>
+<a href="https://github.com/aadi1011/Network-Analyzer"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/aadi1011/Network-Analyzer?label=Stars&logo=github"></a></h3>
 
 # Network-Analyzer
 <b>Repository created by Aadith Sukumar</b> (<a href="https://github.com/aadi1011/">aadi1011</a>). Contact for reuse, issues and more information.</br></br>
