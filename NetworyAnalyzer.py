@@ -161,6 +161,7 @@ def graph_data(data_file):
     print("1. Display NodeView of traffic")
     print("2. Display EdgeView of traffic")
     print("3. Display network map based on traffic")
+    print("4. Display bar graph based on protocol")
     
     sub2_option2=int(input("Choose an option:"))
     if(sub2_option2==1):
@@ -207,7 +208,22 @@ def graph_data(data_file):
             print("Invalid input given. Please try again.")
             os.system('pause')
             os.system('cls')
-            graph_data(data_file)        
+            graph_data(data_file)       
+
+    elif (sub2_option2==4):
+        protocol=data_file.groupby("Protocol").Protocol.count()
+        x = list(protocol.index)    #x is the list of protocols 
+        y = list(protocol.values)   #y is the list of counts of the protocols
+        plt.bar(x, y, width=0.5, color='red')
+        plt.plot(x, y,marker='o', color='black')
+        plt.xlabel('Protocol')
+        plt.ylabel('Communications')
+        plt.title('No. of Communications per Protocol')
+        plt.show()  #plots the bar graph
+        os.system('pause')
+        os.system('cls')
+        graph_data(data_file)
+
 
     elif(sub2_option2==0):
         os.system('cls')
