@@ -13,6 +13,6 @@ User can see data captured, traffic sorted by source address/destination address
 - Works across networks</br>
 - Ability to handle large data</br>
 
-</br><i>Project in initial phases. Much more scalable and many features and bug fixes coming soon.</i></br>
+</br><i>Project in initial phases. Much more scalable and many features and bug fixes coming soon. Advanced EDA soon.</i></br>
 Prerequisite: CSV file with captured network traffic data using sniffers, preferably like Wireshark.
 Soon.
