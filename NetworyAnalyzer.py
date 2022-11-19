@@ -15,8 +15,11 @@ from cgitb import html
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-import networkx as nx 
+import networkx as nx
+# Library to track geolocation
 import geoip2.database
+# Pyfiglet for intro ASCII art. Download by "$pip install pyfiglet".
+# Documentation at https://pypi.org/project/pyfiglet/0.7/
 import pyfiglet
 from pyvis.network import Network
 
