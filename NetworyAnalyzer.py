@@ -41,6 +41,7 @@ def menu2(data_file):
     print("3. Trace Suspected Address")
     print("4. Find public IP address GeoLocation")
     
+    # menu for master options
     option_menu2 = int(input("Choose an option: \n")) # Take user choice for menu
     if(option_menu2 == 1):  #Proceeds to show_data() 
         os.system('cls')
