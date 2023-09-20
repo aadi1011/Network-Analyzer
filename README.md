@@ -13,5 +13,5 @@ User can see data captured, traffic sorted by source address/destination address
 - Works across networks</br>
 - Ability to handle large amounts data</br>
 
-</br><i>Project in Phase 2 out of 5. Much more scalable and many features and bug fixes coming soon. Advanced EDA soon.</i></br>
+</br><i>Project in Phase 2 out of 4. Much more scalable and many features and bug fixes coming soon. Advanced EDA soon.</i></br>
 Prerequisite: CSV file with captured network traffic data using sniffers, preferable tool to be used: Wireshark.
