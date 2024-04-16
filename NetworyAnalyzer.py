@@ -296,7 +296,7 @@ def GeoLoc(data_file):
     if(geo_option=='1'):
 
         #loads the GeoLite2-Country.mmdb file into the geoip2 database
-        reader = geoip2.database.Reader("C:\\Users\\Aadith Sukumar\\Desktop\\CyberSec Project\\Network Analyzer\\GeoLite2-Country.mmdb")
+        reader = geoip2.database.Reader("GeoLite2-Country.mmdb")
         geoloc_input=input("Enter Public IP Address to locate: ")
         try:
             #Checks in the database for the input public IP address
